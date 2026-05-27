@@ -1,0 +1,18 @@
+PACOTES OFFLINE — briefing versao bege (legado)
+===============================================
+
+Para a maioria dos clientes use o LINK:
+  https://candeias-briefing.netlify.app/
+
+Use estes pacotes apenas se a cliente nao conseguir abrir links:
+
+
+WINDOWS
+  Briefing-Website-PT.zip  → extrair → PREENCHER-BRIEFING.bat
+  Briefing-Website-EN.zip
+
+IPHONE (sem extrair ZIP)
+  Briefing-Website-PT-IPHONE.html
+  Briefing-Website-EN-IPHONE.html
+
+Nota: A versao online em deploy\ e mais atual (tema preto, PT+EN, 35 perguntas).

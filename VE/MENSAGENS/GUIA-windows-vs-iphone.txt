@@ -1,0 +1,28 @@
+═══════════════════════════════════════════════
+  O QUE ENVIAR — WINDOWS vs IPHONE
+═══════════════════════════════════════════════
+
+WINDOWS (melhor experiência — 1 clique)
+---------------------------------------
+Enviar:  PACOTES\Briefing-Website-PT.zip
+Mensagem: MENSAGENS\01-mensagem-pt-para-enviar.txt
+Cliente: Extrair → duplo clique PREENCHER-BRIEFING.bat
+
+
+IPHONE (SEM EXTRAIR ZIP)
+------------------------
+Enviar:  PACOTES\Briefing-Website-PT-IPHONE.html   ← só este ficheiro
+Mensagem: MENSAGENS\01b-mensagem-pt-iphone-sem-zip.txt
+Cliente: Toca no anexo → Abrir no Safari → preencher → Enviar WhatsApp
+
+
+INGLÊS (iPhone, sem ZIP)
+------------------------
+Enviar:  PACOTES\Briefing-Website-EN-IPHONE.html
+(criar mensagem EN equivalente se precisar)
+
+
+PORQUÊ?
+-------
+No iPhone, ficheiros dentro de ZIP quase sempre obrigam a «Extrair».
+Um único .html abre direto no Safari — zero passos extra.

@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="pt">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Briefing de Website</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+    <style>
+      :root {
+        --bg: #000000;
+        --bg-elevated: #0a0a0a;
+        --card: rgba(255, 255, 255, 0.03);
+        --card-hover: rgba(255, 255, 255, 0.05);
+        --text: #ededed;
+        --muted: #888888;
+        --border: rgba(255, 255, 255, 0.08);
+        --border-strong: rgba(255, 255, 255, 0.14);
+        --accent: #ffffff;
+        --radius: 10px;
+        --font: "Inter", system-ui, -apple-system, sans-serif;
+      }
+
+      * { box-sizing: border-box; }
+
+      html { scroll-behavior: smooth; }
+
+      body {
+        margin: 0;
+        font-family: var(--font);
+        font-size: 15px;
+        line-height: 1.55;
+        color: var(--text);
+        background: var(--bg);
+        padding: 4.5rem 1rem 9rem;
+        min-height: 100vh;
+      }
+
+      body::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        z-index: 0;
+        background:
+          radial-gradient(ellipse 80% 50% at 50% -20%, rgba(120, 120, 120, 0.12), transparent),
+          linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+        background-size: 100% 100%, 48px 48px, 48px 48px;
+      }
+
+      .topbar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 100;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0.85rem 1.25rem;
+        background: rgba(0, 0, 0, 0.75);
+        backdrop-filter: blur(12px);
+        border-bottom: 1px solid var(--border);
+      }
+
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-weight: 600;
+        font-size: 0.9rem;
+        letter-spacing: -0.02em;
+        color: var(--text);
+      }
+
+      .brand-mark {
+        width: 22px;
+        height: 22px;
+        border-radius: 6px;
+        background: linear-gradient(135deg, #fff 0%, #666 100%);
+        display: grid;
+        place-items: center;
+        font-size: 11px;
+        font-weight: 700;
+        color: #000;
+      }
+
+      .lang-switch {
+        display: flex;
+        gap: 2px;
+        padding: 3px;
+        background: rgba(255, 255, 255, 0.06);
+        border: 1px solid var(--border);
+        border-radius: 8px;
+      }
+
+      .lang-switch button {
+        padding: 0.35rem 0.75rem;
+        border: none;
+        border-radius: 6px;
+        font: inherit;
+        font-size: 0.75rem;
+        font-weight: 600;
+        letter-spacing: 0.04em;
+        cursor: pointer;
+        background: transparent;
+        color: var(--muted);
+        transition: background 0.2s, color 0.2s;
+      }
+
+      .lang-switch button.active {
+        background: rgba(255, 255, 255, 0.12);
+        color: var(--text);
+      }
+
+      .wrap {
+        position: relative;
+        z-index: 1;
+        max-width: 42rem;
+        margin: 0 auto;
+      }
+
+      header {
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 1.75rem 1.5rem;
+        margin-bottom: 1rem;
+      }
+
+      h1 {
+        font-size: 1.5rem;
+        font-weight: 600;
+        letter-spacing: -0.03em;
+        margin: 0 0 0.75rem;
+        color: var(--accent);
+      }
+
+      .intro {
+        margin: 0;
+        color: var(--muted);
+        font-size: 0.92rem;
+      }
+
+      .intro strong { color: var(--text); font-weight: 500; }
+
+      .meta {
+        margin-top: 1.25rem;
+        display: grid;
+        gap: 0.85rem;
+      }
+
+      .meta label {
+        display: flex;
+        flex-direction: column;
+        gap: 0.35rem;
+        font-size: 0.72rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: var(--muted);
+      }
+
+      section {
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 1.35rem 1.5rem;
+        margin-bottom: 0.75rem;
+        transition: border-color 0.2s;
+      }
+
+      section:hover { border-color: var(--border-strong); }
+
+      section h2 {
+        font-size: 0.68rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.14em;
+        color: var(--muted);
+        margin: 0 0 1.1rem;
+      }
+
+      .q { margin-bottom: 1.15rem; }
+      .q:last-child { margin-bottom: 0; }
+
+      .q label {
+        display: block;
+        font-weight: 500;
+        font-size: 0.9rem;
+        margin-bottom: 0.4rem;
+        color: var(--text);
+      }
+
+      .q .hint {
+        font-size: 0.8rem;
+        color: var(--muted);
+        margin: 0 0 0.4rem;
+      }
+
+      .q input[type="text"],
+      .q textarea {
+        width: 100%;
+        padding: 0.65rem 0.85rem;
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        font: inherit;
+        font-size: 0.9rem;
+        background: var(--bg-elevated);
+        color: var(--text);
+        transition: border-color 0.2s, box-shadow 0.2s;
+      }
+
+      .q input::placeholder,
+      .q textarea::placeholder { color: #555; }
+
+      .q input:focus,
+      .q textarea:focus {
+        outline: none;
+        border-color: var(--border-strong);
+        box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.06);
+      }
+
+      .q textarea {
+        min-height: 3.5rem;
+        resize: vertical;
+      }
+
+      .custom-block {
+        border: 1px dashed var(--border-strong);
+        background: rgba(255, 255, 255, 0.02);
+      }
+
+      .custom-row {
+        display: grid;
+        gap: 0.5rem;
+        margin-bottom: 0.85rem;
+        padding-bottom: 0.85rem;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .custom-row:last-of-type {
+        border-bottom: none;
+        margin-bottom: 0;
+        padding-bottom: 0;
+      }
+
+      .bar {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: rgba(0, 0, 0, 0.85);
+        backdrop-filter: blur(16px);
+        border-top: 1px solid var(--border);
+        padding: 0.85rem 1rem;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        justify-content: center;
+        z-index: 2147483647;
+      }
+
+      .bar button {
+        padding: 0.7rem 1.2rem;
+        border-radius: 8px;
+        font: inherit;
+        font-weight: 600;
+        font-size: 0.82rem;
+        cursor: pointer;
+        transition: background 0.2s, border-color 0.2s;
+      }
+
+      .btn-primary {
+        background: #25d366;
+        color: #fff;
+        border: none;
+      }
+
+      .btn-primary:hover { background: #20bd5a; }
+
+      .btn-secondary {
+        background: rgba(255, 255, 255, 0.1);
+        color: var(--text);
+        border: 1px solid var(--border);
+      }
+
+      .btn-secondary:hover { background: rgba(255, 255, 255, 0.14); }
+
+      .btn-outline {
+        background: transparent;
+        color: var(--muted);
+        border: 1px solid var(--border);
+      }
+
+      .btn-outline:hover {
+        color: var(--text);
+        border-color: var(--border-strong);
+      }
+
+      .toast {
+        position: fixed;
+        top: 4.5rem;
+        left: 50%;
+        transform: translateX(-50%);
+        background: var(--bg-elevated);
+        color: var(--text);
+        border: 1px solid var(--border-strong);
+        padding: 0.65rem 1.1rem;
+        border-radius: 8px;
+        font-size: 0.85rem;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.3s;
+        z-index: 2147483647;
+        max-width: 90vw;
+        text-align: center;
+      }
+
+      .toast.show { opacity: 1; }
+
+      @media (max-width: 640px) {
+        body { padding-bottom: 12rem; }
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="topbar">
+      <div class="brand">
+        <span class="brand-mark">B</span>
+        <span data-i18n="brand">Briefing</span>
+      </div>
+      <div class="lang-switch" role="group" aria-label="Language">
+        <button type="button" id="lang-pt" class="active" aria-pressed="true">PT</button>
+        <button type="button" id="lang-en" aria-pressed="false">EN</button>
+      </div>
+    </nav>
+
+    <div class="wrap">
+      <header>
+        <h1 data-i18n="title">Briefing de Website — 35 perguntas</h1>
+        <p class="intro" data-i18n="intro">
+          Preencha este briefing com o máximo de detalhe. No final, clique em <strong>Enviar no WhatsApp</strong> — as respostas chegam diretamente.
+          Fotos e ficheiros podem ser enviados à parte por WhatsApp.
+        </p>
+        <div class="meta">
+          <label><span data-i18n="meta_name">Nome</span><input type="text" name="_nome" data-export-pt="Nome" data-export-en="Name" required /></label>
+          <label><span data-i18n="meta_company">Empresa / Projeto</span><input type="text" name="_empresa" data-export-pt="Empresa / Projeto" data-export-en="Company / Project" required /></label>
+          <label><span data-i18n="meta_date">Data</span><input type="text" name="_data" data-export-pt="Data" data-export-en="Date" data-i18n-placeholder="date_ph" placeholder="ex: 27/05/2026" /></label>
+        </div>
+      </header>
+
+      <form id="briefing">
+        <section>
+          <h2 data-i18n="s1">1 — Sobre o negócio</h2>
+          <div class="q"><label data-i18n="q1">1. Nome oficial da marca/empresa</label><textarea name="q1" data-export-pt="1. Nome da marca" data-export-en="1. Brand name"></textarea></div>
+          <div class="q"><label data-i18n="q2">2. O que faz (2–3 frases objetivas)</label><textarea name="q2" data-export-pt="2. O que faz" data-export-en="2. What you do"></textarea></div>
+          <div class="q"><label data-i18n="q3">3. Há quanto tempo existe e onde está localizado</label><textarea name="q3" data-export-pt="3. História e localização" data-export-en="3. Background & location"></textarea></div>
+          <div class="q"><label data-i18n="q4">4. Missão / propósito</label><textarea name="q4" data-export-pt="4. Missão" data-export-en="4. Mission"></textarea></div>
+          <div class="q"><label data-i18n="q5">5. Diferenciação face à concorrência</label><textarea name="q5" data-export-pt="5. Diferenciação" data-export-en="5. Differentiators"></textarea></div>
+        </section>
+
+        <section>
+          <h2 data-i18n="s2">2 — Objetivos do website</h2>
+          <div class="q"><label data-i18n="q6">6. Objetivo principal do website</label><p class="hint" data-i18n="q6h">Ex: vendas, marcações, pedidos de orçamento…</p><textarea name="q6" data-export-pt="6. Objetivo principal" data-export-en="6. Primary goal"></textarea></div>
+          <div class="q"><label data-i18n="q7">7. Ação principal do visitante (CTA)</label><p class="hint" data-i18n="q7h">Ex: ligar, enviar formulário, comprar…</p><textarea name="q7" data-export-pt="7. Ação principal (CTA)" data-export-en="7. Primary CTA"></textarea></div>
+          <div class="q"><label data-i18n="q8">8. Website novo ou substituição?</label><textarea name="q8" data-export-pt="8. Novo vs substituição" data-export-en="8. New vs replacement"></textarea></div>
+          <div class="q"><label data-i18n="q9">9. Links atuais</label><textarea name="q9" data-export-pt="9. Links atuais" data-export-en="9. Current links"></textarea></div>
+        </section>
+
+        <section>
+          <h2 data-i18n="s3">3 — Público-alvo</h2>
+          <div class="q"><label data-i18n="q10">10. Cliente ideal (perfil)</label><textarea name="q10" data-export-pt="10. Cliente ideal" data-export-en="10. Ideal customer"></textarea></div>
+          <div class="q"><label data-i18n="q11">11. Necessidade/problema do cliente</label><textarea name="q11" data-export-pt="11. Necessidade do cliente" data-export-en="11. Customer need"></textarea></div>
+          <div class="q"><label data-i18n="q12">12. Idiomas do website</label><input type="text" name="q12" data-export-pt="12. Idiomas" data-export-en="12. Languages" data-i18n-placeholder="lang_ph" placeholder="Ex: Português, Inglês" /></div>
+        </section>
+
+        <section>
+          <h2 data-i18n="s4">4 — Conteúdo e copy</h2>
+          <div class="q"><label data-i18n="q13">13. Páginas/secções necessárias</label><p class="hint" data-i18n="q13h">Ex: Início, Sobre, Serviços, Galeria…</p><textarea name="q13" data-export-pt="13. Páginas/Secções" data-export-en="13. Pages/Sections"></textarea></div>
+          <div class="q"><label data-i18n="q14">14. Textos: já existem ou precisa de apoio?</label><textarea name="q14" data-export-pt="14. Estado do conteúdo" data-export-en="14. Copy status"></textarea></div>
+          <div class="q"><label data-i18n="q15">15. Serviços/produtos</label><textarea name="q15" data-export-pt="15. Serviços/Produtos" data-export-en="15. Services/Products"></textarea></div>
+          <div class="q"><label data-i18n="q16">16. Preços no website?</label><textarea name="q16" data-export-pt="16. Preços" data-export-en="16. Pricing"></textarea></div>
+          <div class="q"><label data-i18n="q17">17. Prova social</label><textarea name="q17" data-export-pt="17. Prova social" data-export-en="17. Social proof"></textarea></div>
+        </section>
+
+        <section>
+          <h2 data-i18n="s5">5 — Identidade visual</h2>
+          <div class="q"><label data-i18n="q18">18. Logo disponível?</label><textarea name="q18" data-export-pt="18. Logo" data-export-en="18. Logo"></textarea></div>
+          <div class="q"><label data-i18n="q19">19. Cores oficiais ou preferências</label><textarea name="q19" data-export-pt="19. Cores" data-export-en="19. Colors"></textarea></div>
+          <div class="q"><label data-i18n="q20">20. Sensação do website</label><p class="hint" data-i18n="q20h">Ex: premium, acolhedor, moderno…</p><textarea name="q20" data-export-pt="20. Look & feel" data-export-en="20. Look & feel"></textarea></div>
+          <div class="q"><label data-i18n="q21">21. Referências (links)</label><textarea name="q21" data-export-pt="21. Referências" data-export-en="21. References"></textarea></div>
+          <div class="q"><label data-i18n="q22">22. O que evitar</label><textarea name="q22" data-export-pt="22. Evitar" data-export-en="22. Avoid"></textarea></div>
+        </section>
+
+        <section>
+          <h2 data-i18n="s6">6 — Imagens, vídeo e ficheiros</h2>
+          <div class="q"><label data-i18n="q23">23. Fotos profissionais disponíveis?</label><textarea name="q23" data-export-pt="23. Fotos disponíveis" data-export-en="23. Photos available"></textarea></div>
+          <div class="q"><label data-i18n="q24">24. Sessão fotográfica ou banco de imagens?</label><textarea name="q24" data-export-pt="24. Fotos a produzir" data-export-en="24. Photos to produce"></textarea></div>
+          <div class="q"><label data-i18n="q25">25. Vídeos a incluir</label><textarea name="q25" data-export-pt="25. Vídeo" data-export-en="25. Video"></textarea></div>
+          <div class="q"><label data-i18n="q25b">25.1 Materiais a enviar por WhatsApp</label><p class="hint" data-i18n="q25bh">Indique o que vai enviar e quando.</p><textarea name="q25b" data-export-pt="25.1 Materiais (ficheiros/imagens)" data-export-en="25.1 Assets (files/images)" data-i18n-placeholder="assets_ph" placeholder="Ex: logo + 12 fotos até sexta."></textarea></div>
+        </section>
+
+        <section>
+          <h2 data-i18n="s7">7 — Funcionalidades</h2>
+          <div class="q"><label data-i18n="q26">26. Contacto preferido</label><textarea name="q26" data-export-pt="26. Contacto preferido" data-export-en="26. Preferred contact"></textarea></div>
+          <div class="q"><label data-i18n="q27">27. Reservas, e-commerce ou pagamentos?</label><textarea name="q27" data-export-pt="27. Reservas/Loja/Pagamentos" data-export-en="27. Bookings/E-commerce"></textarea></div>
+          <div class="q"><label data-i18n="q28">28. Mapa, horário, FAQ?</label><textarea name="q28" data-export-pt="28. Mapa/Horário/FAQ" data-export-en="28. Map/Hours/FAQ"></textarea></div>
+          <div class="q"><label data-i18n="q29">29. Redes sociais, newsletter ou chat?</label><textarea name="q29" data-export-pt="29. Redes/Newsletter/Chat" data-export-en="29. Social/Newsletter/Chat"></textarea></div>
+        </section>
+
+        <section>
+          <h2 data-i18n="s8">8 — Domínio, SEO e legal</h2>
+          <div class="q"><label data-i18n="q30">30. Já tem domínio?</label><input type="text" name="q30" data-export-pt="30. Domínio" data-export-en="30. Domain" /></div>
+          <div class="q"><label data-i18n="q31">31. Palavras-chave (SEO)</label><textarea name="q31" data-export-pt="31. SEO (palavras-chave)" data-export-en="31. SEO keywords"></textarea></div>
+          <div class="q"><label data-i18n="q32">32. Legal: privacidade / cookies / termos?</label><input type="text" name="q32" data-export-pt="32. Legal" data-export-en="32. Legal" /></div>
+        </section>
+
+        <section>
+          <h2 data-i18n="s9">9 — Prazos, orçamento e entrega</h2>
+          <div class="q"><label data-i18n="q33">33. Prazo/datas importantes</label><textarea name="q33" data-export-pt="33. Prazo" data-export-en="33. Deadline"></textarea></div>
+          <div class="q"><label data-i18n="q34">34. Orçamento (opcional)</label><input type="text" name="q34" data-export-pt="34. Orçamento" data-export-en="34. Budget" /></div>
+          <div class="q"><label data-i18n="q35">35. Quem aprova e como prefere previews</label><textarea name="q35" data-export-pt="35. Aprovação" data-export-en="35. Approval"></textarea></div>
+        </section>
+
+        <section class="custom-block">
+          <h2 data-i18n="s10">10 — Personalizado</h2>
+          <p class="intro" style="margin: 0 0 1rem; font-size: 0.88rem; color: var(--muted);" data-i18n="custom_intro">Pedidos específicos do seu projeto.</p>
+          <div class="custom-row">
+            <label data-i18n="custom_q">Tema/pergunta personalizada</label>
+            <input type="text" name="custom_q1" data-i18n-placeholder="custom_ph" placeholder="Ex: Integração com ferramenta X" />
+            <label data-i18n="custom_a">Resposta</label>
+            <textarea name="custom_a1"></textarea>
+          </div>
+          <div class="custom-row">
+            <label data-i18n="custom_q">Tema/pergunta personalizada</label>
+            <input type="text" name="custom_q2" />
+            <label data-i18n="custom_a">Resposta</label>
+            <textarea name="custom_a2"></textarea>
+          </div>
+          <div class="custom-row">
+            <label data-i18n="custom_q">Tema/pergunta personalizada</label>
+            <input type="text" name="custom_q3" />
+            <label data-i18n="custom_a">Resposta</label>
+            <textarea name="custom_a3"></textarea>
+          </div>
+          <div class="q" style="margin-top: 1rem">
+            <label data-i18n="notes">Notas adicionais</label>
+            <textarea name="notes" data-export-pt="Notas adicionais" data-export-en="Additional notes" data-i18n-placeholder="notes_ph" placeholder="Informação extra…"></textarea>
+          </div>
+        </section>
+      </form>
+    </div>
+
+    <div class="toast" id="toast"></div>
+
+    <div class="bar">
+      <button type="button" class="btn-outline" id="btn-copy" data-i18n="btn_copy">Copiar texto</button>
+      <button type="button" class="btn-secondary" id="btn-preview" data-i18n="btn_preview">Pré-visualizar</button>
+      <button type="button" class="btn-primary" id="btn-whatsapp" data-i18n="btn_wa">Enviar no WhatsApp</button>
+    </div>
+
+    <script>
+      const WHATSAPP_NUMBER = "351938024721";
+      let currentLang = "pt";
+
+      const T = {
+        pt: {
+          brand: "Briefing",
+          title: "Briefing de Website — 35 perguntas",
+          intro: "Preencha este briefing com o máximo de detalhe. No final, clique em <strong>Enviar no WhatsApp</strong> — as respostas chegam diretamente. Fotos e ficheiros podem ser enviados à parte por WhatsApp.",
+          meta_name: "Nome", meta_company: "Empresa / Projeto", meta_date: "Data",
+          date_ph: "ex: 27/05/2026", lang_ph: "Ex: Português, Inglês", assets_ph: "Ex: logo + 12 fotos até sexta.", notes_ph: "Informação extra…", custom_ph: "Ex: Integração com ferramenta X",
+          s1: "1 — Sobre o negócio", s2: "2 — Objetivos do website", s3: "3 — Público-alvo", s4: "4 — Conteúdo e copy",
+          s5: "5 — Identidade visual", s6: "6 — Imagens, vídeo e ficheiros", s7: "7 — Funcionalidades",
+          s8: "8 — Domínio, SEO e legal", s9: "9 — Prazos, orçamento e entrega", s10: "10 — Personalizado",
+          q1: "1. Nome oficial da marca/empresa", q2: "2. O que faz (2–3 frases objetivas)",
+          q3: "3. Há quanto tempo existe e onde está localizado", q4: "4. Missão / propósito",
+          q5: "5. Diferenciação face à concorrência", q6: "6. Objetivo principal do website",
+          q6h: "Ex: vendas, marcações, pedidos de orçamento…", q7: "7. Ação principal do visitante (CTA)",
+          q7h: "Ex: ligar, enviar formulário, comprar…", q8: "8. Website novo ou substituição?",
+          q9: "9. Links atuais", q10: "10. Cliente ideal (perfil)", q11: "11. Necessidade/problema do cliente",
+          q12: "12. Idiomas do website", q13: "13. Páginas/secções necessárias", q13h: "Ex: Início, Sobre, Serviços, Galeria…",
+          q14: "14. Textos: já existem ou precisa de apoio?", q15: "15. Serviços/produtos",
+          q16: "16. Preços no website?", q17: "17. Prova social", q18: "18. Logo disponível?",
+          q19: "19. Cores oficiais ou preferências", q20: "20. Sensação do website", q20h: "Ex: premium, acolhedor, moderno…",
+          q21: "21. Referências (links)", q22: "22. O que evitar", q23: "23. Fotos profissionais disponíveis?",
+          q24: "24. Sessão fotográfica ou banco de imagens?", q25: "25. Vídeos a incluir",
+          q25b: "25.1 Materiais a enviar por WhatsApp", q25bh: "Indique o que vai enviar e quando.",
+          q26: "26. Contacto preferido", q27: "27. Reservas, e-commerce ou pagamentos?",
+          q28: "28. Mapa, horário, FAQ?", q29: "29. Redes sociais, newsletter ou chat?",
+          q30: "30. Já tem domínio?", q31: "31. Palavras-chave (SEO)", q32: "32. Legal: privacidade / cookies / termos?",
+          q33: "33. Prazo/datas importantes", q34: "34. Orçamento (opcional)", q35: "35. Quem aprova e como prefere previews",
+          custom_intro: "Pedidos específicos do seu projeto.", custom_q: "Tema/pergunta personalizada", custom_a: "Resposta", notes: "Notas adicionais",
+          btn_copy: "Copiar texto", btn_preview: "Pré-visualizar", btn_wa: "Enviar no WhatsApp",
+          header: "📋 *BRIEFING DE WEBSITE — PREENCHIDO*", custom_title: "PERSONALIZADO", custom_empty: "(nenhum item personalizado)",
+          footer: "_Enviado via formulário de briefing_", item: "Item",
+          toast_copy: "Texto copiado — cole no WhatsApp.", toast_wa: "A abrir o WhatsApp…",
+          toast_long: "Mensagem longa. Texto copiado — cole no WhatsApp.", toast_local: "Texto copiado — cole no WhatsApp e envie."
+        },
+        en: {
+          brand: "Brief",
+          title: "Website Brief — 35 questions",
+          intro: "Please complete this brief with as much detail as possible. At the end, click <strong>Send via WhatsApp</strong> — your answers are sent directly. Photos and files can be sent separately via WhatsApp.",
+          meta_name: "Name", meta_company: "Company / Project", meta_date: "Date",
+          date_ph: "e.g. 27/05/2026", lang_ph: "e.g. English, Portuguese", assets_ph: "e.g. logo + 12 photos by Friday.", notes_ph: "Any extra info…", custom_ph: "e.g. Integration with tool X",
+          s1: "1 — Business", s2: "2 — Website goals", s3: "3 — Target audience", s4: "4 — Content",
+          s5: "5 — Visual identity", s6: "6 — Media & files", s7: "7 — Features",
+          s8: "8 — Domain, SEO & legal", s9: "9 — Timeline & delivery", s10: "10 — Custom",
+          q1: "1. Official brand/company name", q2: "2. What do you do? (2–3 clear sentences)",
+          q3: "3. How long in business and location", q4: "4. Mission / purpose",
+          q5: "5. Key differentiators", q6: "6. Primary website goal",
+          q6h: "e.g. sales, bookings, quote requests…", q7: "7. Primary visitor action (CTA)",
+          q7h: "e.g. call, submit form, purchase…", q8: "8. New website or replacement?",
+          q9: "9. Current links", q10: "10. Ideal customer profile", q11: "11. Customer need/problem",
+          q12: "12. Website language(s)", q13: "13. Required pages/sections", q13h: "e.g. Home, About, Services, Gallery…",
+          q14: "14. Copy ready or need help?", q15: "15. Services/products",
+          q16: "16. Display pricing?", q17: "17. Social proof", q18: "18. Logo available?",
+          q19: "19. Brand colors / preferences", q20: "20. Desired look & feel", q20h: "e.g. premium, warm, modern…",
+          q21: "21. References (links)", q22: "22. What to avoid", q23: "23. Professional photos available?",
+          q24: "24. Photoshoot or stock imagery?", q25: "25. Videos to include",
+          q25b: "25.1 Assets to send via WhatsApp", q25bh: "What will you send and when.",
+          q26: "26. Preferred contact method", q27: "27. Bookings, e-commerce or payments?",
+          q28: "28. Map, hours, FAQ?", q29: "29. Social, newsletter or chat?",
+          q30: "30. Do you own a domain?", q31: "31. SEO keywords", q32: "32. Legal: privacy / cookies / terms?",
+          q33: "33. Deadline / important dates", q34: "34. Budget (optional)", q35: "35. Who approves and review process",
+          custom_intro: "Project-specific requests.", custom_q: "Custom topic/question", custom_a: "Answer", notes: "Additional notes",
+          btn_copy: "Copy text", btn_preview: "Preview", btn_wa: "Send via WhatsApp",
+          header: "📋 *WEBSITE BRIEF — COMPLETED*", custom_title: "CUSTOM", custom_empty: "(none provided)",
+          footer: "_Sent via brief form_", item: "Item",
+          toast_copy: "Copied — paste into WhatsApp.", toast_wa: "Opening WhatsApp…",
+          toast_long: "Message is long. Copied — paste into WhatsApp.", toast_local: "Copied — paste into WhatsApp and send."
+        }
+      };
+
+      function setLang(lang) {
+        currentLang = lang;
+        document.documentElement.lang = lang;
+        document.getElementById("lang-pt").classList.toggle("active", lang === "pt");
+        document.getElementById("lang-en").classList.toggle("active", lang === "en");
+        document.getElementById("lang-pt").setAttribute("aria-pressed", lang === "pt");
+        document.getElementById("lang-en").setAttribute("aria-pressed", lang === "en");
+
+        const t = T[lang];
+        document.querySelectorAll("[data-i18n]").forEach((el) => {
+          const key = el.dataset.i18n;
+          if (t[key]) el.innerHTML = t[key];
+        });
+        document.querySelectorAll("[data-i18n-placeholder]").forEach((el) => {
+          const key = el.dataset.i18nPlaceholder;
+          if (t[key]) el.placeholder = t[key];
+        });
+        document.querySelectorAll("[data-export-pt]").forEach((el) => {
+          el.dataset.export = el.dataset[`export${lang === "pt" ? "Pt" : "En"}`];
+        });
+        document.title = lang === "pt" ? "Briefing de Website" : "Website Brief";
+      }
+
+      document.getElementById("lang-pt").addEventListener("click", () => setLang("pt"));
+      document.getElementById("lang-en").addEventListener("click", () => setLang("en"));
+
+      function buildText() {
+        const t = T[currentLang];
+        const lines = [t.header, "━━━━━━━━━━━━━━━━━━━━"];
+        document.querySelectorAll("[data-export]").forEach((el) => {
+          const val = (el.value || "").trim();
+          if (val) lines.push(`\n*${el.dataset.export}*\n${val}`);
+        });
+        lines.push(`\n\n━━ *${t.custom_title}* ━━`);
+        let hasCustom = false;
+        for (let i = 1; i <= 3; i++) {
+          const qt = (document.querySelector(`[name="custom_q${i}"]`)?.value || "").trim();
+          const at = (document.querySelector(`[name="custom_a${i}"]`)?.value || "").trim();
+          if (qt || at) { hasCustom = true; lines.push(`\n*${qt || t.item + " " + i}*\n${at || "—"}`); }
+        }
+        if (!hasCustom) lines.push("\n" + t.custom_empty);
+        lines.push("\n\n━━━━━━━━━━━━━━━━━━━━", t.footer);
+        return lines.join("");
+      }
+
+      function showToast(msg) {
+        const el = document.getElementById("toast");
+        el.textContent = msg;
+        el.classList.add("show");
+        setTimeout(() => el.classList.remove("show"), 2600);
+      }
+
+      async function copyToClipboard(text) {
+        try { await navigator.clipboard.writeText(text); return true; } catch { return false; }
+      }
+
+      function openWhatsAppUrl(url) {
+        const a = document.createElement("a");
+        a.href = url; a.target = "_blank"; a.rel = "noopener noreferrer";
+        document.body.appendChild(a); a.click(); a.remove();
+      }
+
+      function sendViaWhatsApp() {
+        const t = T[currentLang];
+        const raw = buildText();
+        const withText = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(raw)}`;
+        const chatOnly = `https://wa.me/${WHATSAPP_NUMBER}`;
+        if (location.protocol === "file:" || withText.length > 1800) {
+          copyToClipboard(raw).then((ok) => {
+            openWhatsAppUrl(chatOnly);
+            showToast(ok ? (withText.length > 1800 ? t.toast_long : t.toast_local) : t.toast_copy);
+          });
+          return;
+        }
+        openWhatsAppUrl(withText);
+        showToast(t.toast_wa);
+      }
+
+      document.getElementById("btn-copy").addEventListener("click", async () => {
+        const ok = await copyToClipboard(buildText());
+        showToast(ok ? T[currentLang].toast_copy : buildText());
+      });
+      document.getElementById("btn-preview").addEventListener("click", () => {
+        const w = window.open("", "_blank");
+        w.document.write("<pre style='font-family:system-ui;padding:1rem;background:#000;color:#ededed;white-space:pre-wrap'>" + buildText().replace(/</g, "&lt;") + "</pre>");
+      });
+      document.getElementById("btn-whatsapp").addEventListener("click", sendViaWhatsApp);
+
+      const urlLang = new URLSearchParams(location.search).get("lang");
+      setLang(urlLang === "en" ? "en" : "pt");
+    </script>
+  </body>
+</html>

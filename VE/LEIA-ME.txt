@@ -1,0 +1,49 @@
+VE — Projeto Vénusia + Briefing candeias.dev
+=============================================
+
+INICIO RAPIDO
+-------------
+1) Enviar briefing à cliente:
+   MENSAGENS\05b-whatsapp-colar-direto.txt
+
+2) Link online (principal):
+   https://candeias-briefing.netlify.app/
+
+3) Testar no PC antes de publicar:
+   duplo clique em  preview.bat
+
+4) Atualizar o site no Netlify:
+   duplo clique em  atualizar-netlify.bat
+
+
+ESTRUTURA DO PROJETO
+--------------------
+
+  deploy\           ★ Versao OFICIAL (preta) — publicar no Netlify
+  MENSAGENS\        Textos prontos para WhatsApp
+  PACOTES\          ZIP Windows + HTML iPhone (offline, versao bege)
+  DOCUMENTACAO\     Documento Word com tudo o que foi feito
+  _ARQUIVO\         Versoes antigas (nao usar)
+
+
+O QUE NAO FAZER
+---------------
+  × Nao publicar PACOTES\ nem _ARQUIVO\ no Netlify
+  × So a pasta  deploy\  tem a versao preta atualizada
+
+
+ATALHOS NA RAIZ
+---------------
+  preview.bat              Preview local (http://127.0.0.1:5500)
+  atualizar-netlify.bat    Abre pasta deploy + Netlify
+  abrir-pasta-deploy.bat   Abre pasta deploy no Explorer
+
+
+WHATSAPP DE RECECAO
+-------------------
+  938 024 721  (351938024721)
+
+
+DOCUMENTACAO COMPLETA
+---------------------
+  DOCUMENTACAO\VE-Projeto-Documentacao.docx

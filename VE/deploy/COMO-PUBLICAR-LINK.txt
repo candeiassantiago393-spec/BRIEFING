@@ -1,0 +1,59 @@
+═══════════════════════════════════════════════════════════
+  PUBLICAR O FORMULÁRIO COM LINK (GRÁTIS — NETLIFY)
+═══════════════════════════════════════════════════════════
+
+Pasta a publicar:  C:\Users\z005027j\Desktop\VE\deploy
+
+  *** SO ESTA PASTA ***
+  NAO uses _ARQUIVO\ nem PACOTES\ — sao a versao BEGE antiga.
+
+  Versao certa (preta):
+    - fundo preto + grelha
+    - cabecalho: candeias.dev · web-solutions
+    - rodape do titulo: "briefing v2"
+
+  Atalho no PC:  duplo clique em  atualizar-netlify.bat
+
+Depois de publicar terás um link tipo:
+  https://nome-aleatorio.netlify.app/
+  https://nome-aleatorio.netlify.app/en.html   (inglês)
+
+
+PASSO A PASSO (5 minutos)
+-------------------------
+1) Abre no browser:  https://app.netlify.com/drop
+2) Cria conta grátis (email ou Google) se pedir
+3) Arrasta a pasta  deploy  para a zona indicada
+4) Espera — Netlify gera um link automático
+5) Clica no link e testa no telemóvel:
+   - Preenche → Enviar no WhatsApp → deve chegar ao 938 024 721
+
+6) (Opcional) Em Site settings → Domain management
+   podes mudar o nome para algo mais bonito, ex:
+   candeias-briefing.netlify.app
+
+
+O QUE ENVIAR À CLIENTE
+----------------------
+Só o LINK (não precisa de ZIP nem extrair no iPhone):
+
+  Olá! Preencha o briefing aqui:
+  https://SEU-LINK.netlify.app/
+
+Mensagem pronta:  MENSAGENS\05-mensagem-com-link.txt
+
+
+VANTAGENS
+---------
+✓ iPhone abre direto no Safari (sem «documento»)
+✓ Botão WhatsApp funciona melhor
+✓ Um link para todos os clientes
+✓ Podes atualizar o formulário e voltar a fazer deploy
+
+ATUALIZAR DEPOIS DE MUDAR O CODIGO
+----------------------------------
+1) Duplo clique:  atualizar-netlify.bat  (abre a pasta deploy)
+2) Netlify → o teu site → Deploys
+3) Arrasta de novo a pasta  deploy  para "Drag and drop..."
+4) No telemovel: fecha o separador antigo e abre o link outra vez
+   (ou atualizacao forcada) ate ver fundo PRETO e "briefing v2"

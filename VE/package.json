@@ -1,0 +1,8 @@
+{
+  "name": "ve-briefing",
+  "private": true,
+  "scripts": {
+    "preview": "npx --yes serve deploy -l 5500",
+    "preview:open": "start http://127.0.0.1:5500 && npx --yes serve deploy -l 5500"
+  }
+}

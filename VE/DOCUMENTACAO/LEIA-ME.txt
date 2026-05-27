@@ -1,0 +1,12 @@
+DOCUMENTACAO
+============
+
+Ficheiro principal:
+  VE-Projeto-Documentacao.docx
+
+Contem: resumo do projeto, cronologia, estrutura de pastas,
+         como usar, mensagem para Vénusia, problemas resolvidos,
+         links e proximos passos.
+
+Para regenerar o Word (se alterar o script):
+  python gerar-documentacao.py

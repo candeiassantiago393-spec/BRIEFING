@@ -1,0 +1,21 @@
+Olá [NOME]! 👋
+
+Obrigado(a) pelo contacto. Para avançarmos com o seu website de forma organizada, envio em anexo o briefing do projeto.
+
+✅ O que fazer (Windows):
+1) Descarregue o ficheiro *Briefing-Website-PT.zip*
+2) Botão direito → *Extrair tudo*
+3) Dentro da pasta, duplo clique em *PREENCHER-BRIEFING.bat* (abre no browser)
+4) Preencha e no final clique em *Enviar no WhatsApp* (a resposta chega diretamente a mim)
+
+📱 iPhone (sem extrair):
+Peça-me o ficheiro *Briefing-Website-PT-IPHONE.html* — abre direto no Safari, sem ZIP.
+(Android: pode usar o ZIP ou o mesmo ficheiro .html)
+
+📎 Imagens/ficheiros:
+Se preferir, envie logótipo, fotografias e documentos à parte por WhatsApp.
+
+⏱ Prazo sugerido para enviar o briefing: [DATA]
+
+Obrigado!
+

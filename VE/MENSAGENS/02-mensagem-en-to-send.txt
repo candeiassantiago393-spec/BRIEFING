@@ -1,0 +1,20 @@
+Hi [NAME]! 👋
+
+Thank you for reaching out. To move forward with your website in a structured way, I’m attaching the project brief.
+
+✅ What to do (Windows):
+1) Download *Briefing-Website-EN.zip*
+2) Right click → *Extract All*
+3) Inside the folder, double‑click *OPEN-BRIEF.bat* (opens in your browser)
+4) Fill it out and click *Send via WhatsApp* at the end (it comes directly to me)
+
+📱 iPhone/Android:
+Extract the ZIP and open *OPEN-BRIEF.html* in Safari/Chrome.
+
+📎 Files/assets:
+If you prefer, send your logo, photos and documents separately via WhatsApp.
+
+⏱ Suggested deadline: [DATE]
+
+Thank you!
+

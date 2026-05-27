@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Website Brief — 35 Questions</title>
+    <style>
+      :root {
+        --bg: #f4f1ec;
+        --card: #fffdf9;
+        --text: #1f1b17;
+        --muted: #6b635c;
+        --accent: #b8956b;
+        --border: #e5ddd3;
+        --radius: 12px;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+        font-size: 16px;
+        line-height: 1.5;
+        color: var(--text);
+        background: var(--bg);
+        padding: 1rem 1rem 9rem;
+      }
+
+      .wrap {
+        max-width: 44rem;
+        margin: 0 auto;
+      }
+
+      header {
+        background: var(--card);
+        border-radius: var(--radius);
+        padding: 1.5rem;
+        margin-bottom: 1.25rem;
+        border: 1px solid var(--border);
+      }
+
+      h1 {
+        font-size: 1.35rem;
+        margin: 0 0 0.5rem;
+      }
+
+      .intro {
+        margin: 0;
+        color: var(--muted);
+        font-size: 0.95rem;
+      }
+
+      .meta {
+        margin-top: 1rem;
+        display: grid;
+        gap: 0.75rem;
+      }
+
+      .meta label {
+        display: flex;
+        flex-direction: column;
+        gap: 0.25rem;
+        font-size: 0.8rem;
+        font-weight: 650;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        color: var(--muted);
+      }
+
+      .meta input {
+        padding: 0.65rem 0.85rem;
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        font: inherit;
+      }
+
+      section {
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 1.25rem 1.5rem;
+        margin-bottom: 1rem;
+      }
+
+      section h2 {
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+        color: var(--accent);
+        margin: 0 0 1rem;
+      }
+
+      .q {
+        margin-bottom: 1.1rem;
+      }
+
+      .q:last-child {
+        margin-bottom: 0;
+      }
+
+      .q label {
+        display: block;
+        font-weight: 650;
+        font-size: 0.92rem;
+        margin-bottom: 0.35rem;
+      }
+
+      .q .hint {
+        font-size: 0.82rem;
+        color: var(--muted);
+        margin: 0 0 0.35rem;
+        font-weight: 450;
+      }
+
+      .q input[type="text"],
+      .q textarea {
+        width: 100%;
+        padding: 0.6rem 0.75rem;
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        font: inherit;
+        background: #fff;
+      }
+
+      .q textarea {
+        min-height: 3.6rem;
+        resize: vertical;
+      }
+
+      .custom-block {
+        border: 2px dashed var(--accent);
+        background: rgba(184, 149, 107, 0.06);
+      }
+
+      .custom-row {
+        display: grid;
+        gap: 0.5rem;
+        margin-bottom: 0.75rem;
+        padding-bottom: 0.75rem;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .custom-row:last-of-type {
+        border-bottom: none;
+        margin-bottom: 0;
+        padding-bottom: 0;
+      }
+
+      .bar {
+        position: fixed;
+        bottom: 1rem;
+        left: 0;
+        right: 0;
+        background: var(--card);
+        border-top: 1px solid var(--border);
+        padding: 0.75rem 1rem;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        justify-content: center;
+        z-index: 2147483647;
+      }
+
+      .bar button {
+        padding: 0.75rem 1.25rem;
+        border: none;
+        border-radius: 100px;
+        font: inherit;
+        font-weight: 700;
+        font-size: 0.85rem;
+        cursor: pointer;
+      }
+
+      .btn-primary {
+        background: #25d366;
+        color: #fff;
+      }
+
+      .btn-secondary {
+        background: var(--text);
+        color: #fff;
+      }
+
+      .btn-outline {
+        background: transparent;
+        border: 1px solid var(--border);
+        color: var(--text);
+      }
+
+      .toast {
+        position: fixed;
+        top: 1rem;
+        left: 50%;
+        transform: translateX(-50%);
+        background: var(--text);
+        color: #fff;
+        padding: 0.6rem 1.2rem;
+        border-radius: 8px;
+        font-size: 0.9rem;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.3s;
+        z-index: 2147483647;
+      }
+
+      .toast.show {
+        opacity: 1;
+      }
+
+      @media (max-width: 640px) {
+        body {
+          padding-bottom: 14rem;
+        }
+
+        .bar {
+          bottom: 4.75rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <header>
+        <h1>Website Brief — 35 questions</h1>
+        <p class="intro">
+          Please complete this brief with as much detail as possible.
+          At the end, click <strong>Send via WhatsApp</strong> (recommended) or
+          <strong>Copy text</strong> and paste it back into our chat.
+          <br /><br />
+          <strong>Files:</strong> images, logos and documents can be sent separately via WhatsApp.
+        </p>
+        <div class="meta">
+          <label>Your name <input type="text" name="_name" data-export="Name" required /></label>
+          <label>Company / Project <input type="text" name="_company" data-export="Company / Project" required /></label>
+          <label>Date <input type="text" name="_date" data-export="Date" placeholder="e.g. 27/05/2026" /></label>
+        </div>
+      </header>
+
+      <form id="briefing">
+        <section>
+          <h2>1 — Business</h2>
+          <div class="q"><label>1. Official brand/company name</label><textarea name="q1" data-export="1. Brand name"></textarea></div>
+          <div class="q"><label>2. What do you do? (2–3 clear sentences)</label><textarea name="q2" data-export="2. What you do"></textarea></div>
+          <div class="q"><label>3. How long have you been in business and where are you located?</label><textarea name="q3" data-export="3. Background & location"></textarea></div>
+          <div class="q"><label>4. Mission / purpose</label><textarea name="q4" data-export="4. Mission"></textarea></div>
+          <div class="q"><label>5. Key differentiators vs competitors</label><textarea name="q5" data-export="5. Differentiators"></textarea></div>
+        </section>
+
+        <section>
+          <h2>2 — Website goals</h2>
+          <div class="q"><label>6. Primary goal</label><p class="hint">e.g. sales, bookings, quotes, lead generation…</p><textarea name="q6" data-export="6. Primary goal"></textarea></div>
+          <div class="q"><label>7. Primary action (CTA)</label><p class="hint">e.g. call, submit form, purchase, request a quote…</p><textarea name="q7" data-export="7. Primary CTA"></textarea></div>
+          <div class="q"><label>8. New website or replacing an existing one?</label><textarea name="q8" data-export="8. New vs replacement"></textarea></div>
+          <div class="q"><label>9. Current links (website, social, Google Maps, etc.)</label><textarea name="q9" data-export="9. Current links"></textarea></div>
+        </section>
+
+        <section>
+          <h2>3 — Target audience</h2>
+          <div class="q"><label>10. Ideal customer profile</label><textarea name="q10" data-export="10. Ideal customer"></textarea></div>
+          <div class="q"><label>11. What problem/need do they have?</label><textarea name="q11" data-export="11. Customer need"></textarea></div>
+          <div class="q"><label>12. Website language(s)</label><input type="text" name="q12" data-export="12. Languages" placeholder="e.g. English, Portuguese" /></div>
+        </section>
+
+        <section>
+          <h2>4 — Content</h2>
+          <div class="q"><label>13. Required pages/sections</label><p class="hint">e.g. Home, About, Services, Gallery, Contact, Blog…</p><textarea name="q13" data-export="13. Pages/Sections"></textarea></div>
+          <div class="q"><label>14. Is the copy ready or do you need help writing it?</label><textarea name="q14" data-export="14. Copy status"></textarea></div>
+          <div class="q"><label>15. Services/products (list + short description — or “to be sent”)</label><textarea name="q15" data-export="15. Services/Products"></textarea></div>
+          <div class="q"><label>16. Pricing on the website? (yes/no + details)</label><textarea name="q16" data-export="16. Pricing"></textarea></div>
+          <div class="q"><label>17. Social proof (testimonials, awards, metrics)</label><textarea name="q17" data-export="17. Social proof"></textarea></div>
+        </section>
+
+        <section>
+          <h2>5 — Visual identity</h2>
+          <div class="q"><label>18. Logo available? (yes/no — send via WhatsApp)</label><textarea name="q18" data-export="18. Logo"></textarea></div>
+          <div class="q"><label>19. Brand colors / preferences</label><textarea name="q19" data-export="19. Colors"></textarea></div>
+          <div class="q"><label>20. Desired look & feel</label><p class="hint">e.g. premium, warm, modern, minimal…</p><textarea name="q20" data-export="20. Look & feel"></textarea></div>
+          <div class="q"><label>21. References you like (links)</label><textarea name="q21" data-export="21. References"></textarea></div>
+          <div class="q"><label>22. What to avoid</label><textarea name="q22" data-export="22. Avoid"></textarea></div>
+        </section>
+
+        <section>
+          <h2>6 — Media & files</h2>
+          <div class="q"><label>23. Do you have professional photos? (how many / what)</label><textarea name="q23" data-export="23. Photos available"></textarea></div>
+          <div class="q"><label>24. Do you need a photoshoot or can we use stock imagery?</label><textarea name="q24" data-export="24. Photos to produce"></textarea></div>
+          <div class="q"><label>25. Videos to include</label><textarea name="q25" data-export="25. Video"></textarea></div>
+          <div class="q"><label>25.1 Assets to be sent via WhatsApp (optional)</label><p class="hint">If you prefer, send files via WhatsApp. Tell us what you’ll send and when.</p><textarea name="q25b" data-export="25.1 Assets to be sent (files/images)" placeholder="e.g. logo + 12 photos by Friday"></textarea></div>
+        </section>
+
+        <section>
+          <h2>7 — Features</h2>
+          <div class="q"><label>26. Preferred contact method</label><textarea name="q26" data-export="26. Preferred contact method"></textarea></div>
+          <div class="q"><label>27. Bookings, e-commerce or online payments?</label><textarea name="q27" data-export="27. Bookings/E-commerce/Payments"></textarea></div>
+          <div class="q"><label>28. Map, opening hours, FAQ?</label><textarea name="q28" data-export="28. Map/Hours/FAQ"></textarea></div>
+          <div class="q"><label>29. Social links, newsletter, chat?</label><textarea name="q29" data-export="29. Social/Newsletter/Chat"></textarea></div>
+        </section>
+
+        <section>
+          <h2>8 — Domain, SEO & legal</h2>
+          <div class="q"><label>30. Do you own a domain?</label><input type="text" name="q30" data-export="30. Domain" /></div>
+          <div class="q"><label>31. SEO keywords</label><textarea name="q31" data-export="31. SEO keywords"></textarea></div>
+          <div class="q"><label>32. Legal: privacy / cookies / terms? (yes/no)</label><input type="text" name="q32" data-export="32. Legal" /></div>
+        </section>
+
+        <section>
+          <h2>9 — Timeline & delivery</h2>
+          <div class="q"><label>33. Deadline / important dates</label><textarea name="q33" data-export="33. Deadline"></textarea></div>
+          <div class="q"><label>34. Budget (optional)</label><input type="text" name="q34" data-export="34. Budget" /></div>
+          <div class="q"><label>35. Who approves and how do you want to review previews?</label><textarea name="q35" data-export="35. Approval"></textarea></div>
+        </section>
+
+        <section class="custom-block">
+          <h2>10 — Custom requests</h2>
+          <p class="intro" style="margin: 0 0 1rem; font-size: 0.9rem;">
+            Use the fields below for project‑specific items.
+          </p>
+          <div class="custom-row">
+            <label>Custom topic/question 1</label>
+            <input type="text" name="custom_q1" placeholder="e.g. Integration with tool X" />
+            <label>Answer</label>
+            <textarea name="custom_a1"></textarea>
+          </div>
+          <div class="custom-row">
+            <label>Custom topic/question 2</label>
+            <input type="text" name="custom_q2" placeholder="e.g. Members area" />
+            <label>Answer</label>
+            <textarea name="custom_a2"></textarea>
+          </div>
+          <div class="custom-row">
+            <label>Custom topic/question 3</label>
+            <input type="text" name="custom_q3" />
+            <label>Answer</label>
+            <textarea name="custom_a3"></textarea>
+          </div>
+          <div class="custom-row">
+            <label>Custom topic/question 4</label>
+            <input type="text" name="custom_q4" />
+            <label>Answer</label>
+            <textarea name="custom_a4"></textarea>
+          </div>
+          <div class="custom-row">
+            <label>Custom topic/question 5</label>
+            <input type="text" name="custom_q5" />
+            <label>Answer</label>
+            <textarea name="custom_a5"></textarea>
+          </div>
+          <div class="q" style="margin-top: 1rem">
+            <label>Additional notes</label>
+            <textarea name="notes" data-export="Additional notes" placeholder="Any extra information…"></textarea>
+          </div>
+        </section>
+      </form>
+    </div>
+
+    <div class="toast" id="toast">Copied!</div>
+
+    <div class="bar">
+      <button type="button" class="btn-outline" id="btn-copy">Copy text</button>
+      <button type="button" class="btn-secondary" id="btn-preview">Preview</button>
+      <button type="button" class="btn-primary" id="btn-whatsapp">Send via WhatsApp</button>
+    </div>
+
+    <script>
+      const WHATSAPP_NUMBER = "351938024721";
+
+      function buildText() {
+        const lines = ["📋 *WEBSITE BRIEF — COMPLETED*", "━━━━━━━━━━━━━━━━━━━━"];
+
+        document.querySelectorAll("[data-export]").forEach((el) => {
+          const label = el.dataset.export;
+          const val = (el.value || "").trim();
+          if (val) lines.push(`\n*${label}*\n${val}`);
+        });
+
+        lines.push("\n\n━━ *CUSTOM REQUESTS* ━━");
+        let hasCustom = false;
+        for (let i = 1; i <= 5; i++) {
+          const qt = (document.querySelector(`[name="custom_q${i}"]`)?.value || "").trim();
+          const at = (document.querySelector(`[name="custom_a${i}"]`)?.value || "").trim();
+          if (qt || at) {
+            hasCustom = true;
+            lines.push(`\n*${qt || "Item " + i}*\n${at || "—"}`);
+          }
+        }
+        if (!hasCustom) lines.push("\n(none provided)");
+
+        lines.push("\n\n━━━━━━━━━━━━━━━━━━━━");
+        lines.push("_Sent via brief form_");
+        return lines.join("");
+      }
+
+      function showToast(msg) {
+        const t = document.getElementById("toast");
+        t.textContent = msg;
+        t.classList.add("show");
+        setTimeout(() => t.classList.remove("show"), 2600);
+      }
+
+      async function copyToClipboard(text) {
+        try {
+          await navigator.clipboard.writeText(text);
+          return true;
+        } catch {
+          return false;
+        }
+      }
+
+      function openWhatsAppUrl(url) {
+        try {
+          window.location.assign(url);
+          return true;
+        } catch {
+          return false;
+        }
+      }
+
+      document.getElementById("btn-copy").addEventListener("click", async () => {
+        const text = buildText();
+        const ok = await copyToClipboard(text);
+        if (ok) showToast("Copied — paste into WhatsApp.");
+        else prompt("Copy this text and send via WhatsApp:", text);
+      });
+
+      document.getElementById("btn-preview").addEventListener("click", () => {
+        const w = window.open("", "_blank");
+        w.document.write(
+          "<pre style='font-family:system-ui,Segoe UI,sans-serif;padding:1rem;white-space:pre-wrap'>" +
+            buildText().replace(/</g, "&lt;") +
+            "</pre>"
+        );
+      });
+
+      document.getElementById("btn-whatsapp").addEventListener("click", () => {
+        const raw = buildText();
+        const encoded = encodeURIComponent(raw);
+        const withText = `https://wa.me/${WHATSAPP_NUMBER}?text=${encoded}&ts=${Date.now()}`;
+        const withoutText = `https://wa.me/${WHATSAPP_NUMBER}?ts=${Date.now()}`;
+
+        if (withText.length > 1800) {
+          copyToClipboard(raw).then((ok) => {
+            if (ok) showToast("Message is long. Copied — paste into WhatsApp.");
+            else showToast("Message is long. Please copy and paste into WhatsApp.");
+            openWhatsAppUrl(withoutText);
+          });
+          return;
+        }
+
+        const navigated = openWhatsAppUrl(withText);
+        if (!navigated) {
+          copyToClipboard(raw).then(() => openWhatsAppUrl(withoutText));
+          showToast("If it doesn’t open: copied — paste into WhatsApp.");
+        }
+      });
+    </script>
+  </body>
+</html>

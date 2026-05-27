@@ -1,0 +1,22 @@
+BRIEFING DE WEBSITE (PT)
+=======================
+
+WINDOWS
+-------
+1) Extraia o ZIP (botão direito → "Extrair tudo")
+2) Duplo clique em "PREENCHER-BRIEFING.bat" (abre no browser automaticamente)
+
+IPHONE / ANDROID
+---------------
+1) Extraia o ZIP
+2) Abra "PREENCHER-BRIEFING.html" no browser (Safari/Chrome)
+
+NO FINAL
+--------
+- Clique em "Enviar no WhatsApp"
+- Se aparecer a mensagem "texto copiado" (quando a mensagem é longa), cole no WhatsApp e envie.
+
+FICHEIROS (FOTOS / LOGO / PDF)
+------------------------------
+Se preferir, pode enviar imagens e ficheiros separadamente por WhatsApp.
+

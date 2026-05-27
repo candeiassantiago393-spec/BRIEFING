@@ -1,0 +1,35 @@
+IPHONE — O FICHEIRO ABRE COMO «DOCUMENTO»? (NORMAL)
+=================================================
+
+No iPhone o WhatsApp muitas vezes NÃO abre o .html no Safari.
+Mostra uma pré-visualização (documento). Isso é normal.
+
+O QUE A CLIENTE DEVE FAZER (2 opções)
+--------------------------------------
+
+OPÇÃO 1 — Tentar Safari (se aparecer)
+1) Na pré-visualização, toque no ícone PARTILHAR (quadrado com seta ↑)
+2) Deslize a lista e toque em SAFARI
+3) Preencha o formulário no Safari
+
+OPÇÃO 2 — A mais fiável (recomendada)
+1) Abra o ficheiro como conseguir (documento ou Safari)
+2) Preencha as perguntas
+3) Toque em «COPIAR TEXTO» (botão em baixo)
+4) Abra o WhatsApp → conversa contigo → toque na caixa de mensagem
+5) Toque «Colar» → Enviar
+
+O botão verde «Enviar no WhatsApp» no iPhone:
+- Copia o texto automaticamente
+- Abre o WhatsApp
+- Ela só tem de COLAR e enviar
+
+TU ENVIAS
+---------
+PACOTES\Briefing-Website-PT-IPHONE.html
++ mensagem: 01b-mensagem-pt-iphone-sem-zip.txt
+
+SOLUÇÃO PERFEITA (FUTURO)
+-------------------------
+Publicar o formulário online (link https) — aí abre sempre bem no iPhone.
+Ex: Netlify Drop (grátis, arrastar a pasta).

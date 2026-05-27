@@ -1,0 +1,43 @@
+PRE-VISUALIZACAO LOCAL (antes do Netlify)
+=========================================
+
+Opcao 1 — Duplo clique (mais facil)
+-----------------------------------
+  preview.bat
+
+  Abre: http://127.0.0.1:5500
+  Ingles: http://127.0.0.1:5500/?lang=en
+
+  Para parar: Ctrl+C na janela preta
+
+
+Opcao 2 — Terminal (PowerShell)
+-------------------------------
+  cd C:\Users\z005027j\Desktop\VE
+  .\preview.bat
+
+  OU:
+
+  cd C:\Users\z005027j\Desktop\VE\deploy
+  python -m http.server 5500 --bind 127.0.0.1
+
+  Depois abre no browser: http://127.0.0.1:5500
+
+
+Opcao 3 — npm (alternativa)
+---------------------------
+  cd C:\Users\z005027j\Desktop\VE
+  npm run preview
+
+  Browser: http://127.0.0.1:5500
+
+
+PORQUE usar isto em vez de abrir o .html?
+-----------------------------------------
+Com http://127.0.0.1:5500 o botao WhatsApp funciona melhor
+(igual ao que tera no Netlify).
+
+
+Quando estiver satisfeito
+-------------------------
+Publicar pasta deploy em: https://app.netlify.com/drop

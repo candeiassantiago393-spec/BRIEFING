@@ -1,0 +1,24 @@
+INDICE — Mensagens WhatsApp
+===========================
+
+PRIMEIRO CONTACTO (recomendado)
+  05b-whatsapp-colar-direto.txt     Link Netlify, link fica azul
+
+COM LINK (versao longa)
+  05-mensagem-com-link.txt
+
+ZIP WINDOWS (se nao usar link)
+  01-mensagem-pt-para-enviar.txt
+  02-mensagem-en-to-send.txt
+
+IPHONE SEM ZIP
+  01b-mensagem-pt-iphone-sem-zip.txt
+  iphone-como-usar.txt
+
+SEGUIMENTO
+  03-lembrete-pt.txt
+  04-confirmacao-recebido-pt.txt
+
+AJUDA
+  LINK-CLICAVEL-WHATSAPP.txt        Porque o link nao fica azul
+  GUIA-windows-vs-iphone.txt
